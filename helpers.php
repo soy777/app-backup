@@ -1,6 +1,8 @@
 <?php
-// Utility helper functions
-function app_helper_example(){
-    return "Helper loaded";
+/**
+ * Helper functions for theme app
+ */
+
+function app_helper_sample(){
+    return "This is a helper function";
 }
-?>
