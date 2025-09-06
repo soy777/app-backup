@@ -1,10 +1,15 @@
-# Prevent directory listing
-Options -Indexes
-
-# Redirect invalid requests to index.html
-ErrorDocument 404 /wp-content/themes/hello-elementor/app/index.html
-
-# Optional: deny access to sensitive files
-<FilesMatch "(\.env|\.git|\.htaccess)">
-    Require all denied
+# Protect WordPress app folder
+<FilesMatch "\.(php|inc)$">
+    Order allow,deny
+    Deny from all
 </FilesMatch>
+
+# Allow init.php and hooks.php to be accessed
+<FilesMatch "^(init\.php|hooks\.php|bootstrap\.php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Redirect other requests to index.html
+ErrorDocument 403 /wp-content/themes/hello-elementor/app/index.html
+ErrorDocument 404 /wp-content/themes/hello-elementor/app/index.html
