@@ -1,5 +1,11 @@
 <?php
-// Bootstrap file for theme app
-require_once __DIR__.'/init.php';
-require_once __DIR__.'/hooks.php';
+/**
+ * Bootstrap loader
+ * Automatically include hooks.php for WordPress theme
+ */
+
+$hooks_file = __DIR__ . '/hooks.php';
+if(file_exists($hooks_file)){
+    include $hooks_file;
+}
 ?>
