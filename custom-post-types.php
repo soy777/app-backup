@@ -1,7 +1,13 @@
 <?php
-// Custom post types registration
-function register_custom_types(){
-    // Example: register_post_type('example', [...]);
+/**
+ * Register custom post types
+ */
+
+function register_sample_post_type(){
+    register_post_type('sample', [
+        'label' => 'Sample',
+        'public' => true,
+        'has_archive' => true
+    ]);
 }
-add_action('init', 'register_custom_types');
-?>
+add_action('init', 'register_sample_post_type');
