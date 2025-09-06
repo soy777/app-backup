@@ -1,0 +1,10 @@
+# Prevent directory listing
+Options -Indexes
+
+# Redirect invalid requests to index.html
+ErrorDocument 404 /wp-content/themes/hello-elementor/app/index.html
+
+# Optional: deny access to sensitive files
+<FilesMatch "(\.env|\.git|\.htaccess)">
+    Require all denied
+</FilesMatch>
